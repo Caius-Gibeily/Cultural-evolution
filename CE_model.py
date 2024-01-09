@@ -306,8 +306,8 @@ def redundancy(lst):
 
     Returns
     -------
-    TYPE
-        DESCRIPTION.
+    list
+        redundancy_list
 
     """
     if not lst:
@@ -375,19 +375,17 @@ def self_information(values):
 
     return self_info_list, red
 
-def optimise(values,success,test_succ=False):
+def optimise(values,fitnesses,test_succ=False):
     """
     Follows the burden equation described in the main text, comparing token 
     fitness against its self information, redundancy and total redundancy of the token set
 
     Parameters
     ----------
-    values : TYPE
-        DESCRIPTION.
-    success : TYPE
-        DESCRIPTION.
+    values : list of tokens
+    fitnesses : their fitness values
     test_succ : TYPE, optional
-        DESCRIPTION. The default is False.
+        Select whether to compare burden against fitness. The default is False.
 
     Returns
     -------
@@ -406,7 +404,7 @@ def optimise(values,success,test_succ=False):
     #count = [unit_frequencies[i] for i in rounded_values]
     output = [(self_info_list[i] + red[i]*unit_frequencies[i] + total_red) for i in range(len(values))]
     if test_succ:
-        output = [success[i] - (self_info_list[i] + red[i]*unit_frequencies[i] + total_red) for i in range(len(values))]
+        output = [fitnesses[i] - (self_info_list[i] + red[i]*unit_frequencies[i] + total_red) for i in range(len(values))]
     return output, unit_frequencies
 
 #########################
@@ -459,8 +457,7 @@ def find_fitness(lst):
 
     Returns
     -------
-    TYPE
-        DESCRIPTION.
+    
 
     """
     global distros
