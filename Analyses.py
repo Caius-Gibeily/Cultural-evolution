@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Nov 29 18:15:08 2023
-
-@author: caiusgibeily
 """
 
 import os
