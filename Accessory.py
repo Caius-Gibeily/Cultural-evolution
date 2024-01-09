@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Dec  2 19:57:09 2023
-
-@author: caiusgibeily
 """
 import numpy as np
 import networkx as nx
